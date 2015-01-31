@@ -1,0 +1,50 @@
+/*!
+ * Start Bootstrap - Landing Page Bootstrap Theme (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body {
+}
+html {
+    width: 100%;
+    height: 100%;
+}
+
+#filterBtn {
+    float:right;
+    background-color: #EC87C0;
+    color: white;
+    border: 0px;
+}
+
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+}
+
+@media(max-width:767px) {
+footer {
+  padding: 10px 0;
+  background-color: #f8f8f8;
+}
+
+p.copyright {
+    margin: 15px 0 0;
+}
+/* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: white;
+  text-shadow: none; /* Prevent inheritence from `body` */
+  background-color: #EC87C0;
+  border: 0px;
+}
