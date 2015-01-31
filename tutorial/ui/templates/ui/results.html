@@ -125,8 +125,8 @@
                          </label>
                         <div class=" form-inline col-sm-10">
                             <b id="bLowestPrice">50</b>
-                            <input id="ex2" type="text" class="span2" value="" data-slider-min="50" data-slider-max="5000" data-slider-step="5" data-slider-value="[50,5000]"/>
-                            <b id="bHighestPrice">5000</b>
+                            <input id="ex2" type="text" class="span2" value="" data-slider-min="50" data-slider-max="500" data-slider-step="5" data-slider-value="[50,500]"/>
+                            <b id="bHighestPrice">500</b>
                         </div>
                     </div>
                     <div class="form-group">
@@ -199,9 +199,29 @@
             });
         }
     }
-
-    function initialTableList(tables){
+    function removeAll(){
+        $('#resultdiv').empty();  
+    }
+function isAllowList(data, filter){
+    if(data.available_num < filter.attendance)
+        return false;
+    if(data.wine && filter.wine)
+        return false;
+    if(data.pet && filter.pet)
+        return false;
+    if(data.smoking && filter.smoking)
+        return false;
+    if(data.price < filter.lowPrice || data.price > filter.highPrice)
+        return false;
+    return true;
+    }
+    function initialTableList(tables, filter){
         for (var i = 0; i < tables.length; i++) {
+            if(null != filter){
+                if(!isAllowList(tables[i], filter)){
+                    continue;
+                }
+            }
             var table = tables[i];
             var imgsrc = table.thumbnail;
             var title = table.title;
@@ -213,6 +233,7 @@
             $('h3', $div).text(title);  
             $('p', $div).text(description);
             $('#resultdiv').append($div);  
+            console.log("GG");
               
             //console.log($div);
             $div.hover(function(){
@@ -230,6 +251,7 @@
     }
 
     $(function(){
+        var data;
         //var slider = new Slider('#ex2', {});
         $("#ex2").slider({});
         $('.slider').css('width', '50%').css('margin-left', '20px').css('margin-right', '20px');
@@ -239,146 +261,20 @@
             $("#bHighestPrice").text(slideEvt.value[1]);
         });
         //var slider = new Slider('#ex2', {});
-
-        var betadata = [
-            {
-                title: '5566下廚了',
-                price: 5566,
-                host: {
-                    name: '5566',
-                    contact: '0912345678',
-                    thumbnail: null
-                },
-                available: 6,
-                menu: [
-                    {
-                        name: '黯然銷魂飯',
-                        thumbnail: null
-                    },
-                    {
-                        name: '砸碎面',
-                        thumbnail: null
-                    }
-                ],
-                datetime: 140002024294.10240,
-                location: {
-                    address: '台北市中山北路一段1號4樓',
-                    laytitude: -25.363882,
-                    longtitude: 131.044922
-                },
-                description: '來吃就對了',
-                smoking: false,
-                pet: false,
-                wine: true,
-                thumbnail: 'static/img/001.jpg'
-            },
-            {
-                title: '5566下廚了',
-                price: 5566,
-                host: {
-                    name: '5566',
-                    contact: '0912345678',
-                    thumbnail: null
-                },
-                available: 6,
-                menu: [
-                    {
-                        name: '黯然銷魂飯',
-                        thumbnail: null
-                    },
-                    {
-                        name: '砸碎面',
-                        thumbnail: null
-                    }
-                ],
-                datetime: 140002024294.10240,
-                location: {
-                    address: '台北市中山北路一段1號4樓',
-                    laytitude: -25.463882,
-                    longtitude: 131.144922
-                },
-                description: '來吃就對了',
-                smoking: false,
-                pet: false,
-                wine: true,
-                thumbnail: 'static/img/002.jpg'
-            },
-            {
-                title: '5566下廚了',
-                price: 5566,
-                host: {
-                    name: '5566',
-                    contact: '0912345678',
-                    thumbnail: null
-                },
-                available: 6,
-                menu: [
-                    {
-                        name: '黯然銷魂飯',
-                        thumbnail: null
-                    },
-                    {
-                        name: '砸碎面',
-                        thumbnail: null
-                    }
-                ],
-                datetime: 140002024294.10240,
-                location: {
-                    address: '台北市中山北路一段1號4樓',
-                    laytitude: -25.563882,
-                    longtitude: 131.244922
-                },
-                description: '來吃就對了',
-                smoking: false,
-                pet: false,
-                wine: true,
-                thumbnail: 'static/img/003.jpg'
-            },
-            {
-                title: '5566下廚了',
-                price: 5566,
-                host: {
-                    name: '5566',
-                    contact: '0912345678',
-                    thumbnail: null
-                },
-                available: 6,
-                menu: [
-                    {
-                        name: '黯然銷魂飯',
-                        thumbnail: null
-                    },
-                    {
-                        name: '砸碎面',
-                        thumbnail: null
-                    }
-                ],
-                datetime: 140002024294.10240,
-                location: {
-                    address: '台北市中山北路一段1號4樓',
-                    laytitude: -25.663882,
-                    longtitude: 131.344922
-                },
-                description: '來吃就對了',
-                smoking: false,
-                pet: false,
-                wine: true,
-                thumbnail: 'static/img/004.jpg'
-            }
-        ];
-
-        var betarequest = {
-            attendance: 2,
-            price: {
-                lb: 50,
-                ub: 350
-            },
-            datetime: 140002024294.10240
-        }
-
-        var data = betadata;
-        initializeGoogleMap(data);
-        initialTableList(data);
+        $("#filterBtn").click(function(e){
+            e.preventDefault();
+            removeAll();
+            var filter = getFilter();
+            initialTableList(data, filter);
+        });
+        
+        var table = restFactory.factory("http://127.0.0.1:8000/api", "tables");
+        table.list(function(status, response){
+            console.log(response);
+            data = response.results;
+            initializeGoogleMap(data);
+            initialTableList(data, null);
+            }, null);
 
     });
     </script>
