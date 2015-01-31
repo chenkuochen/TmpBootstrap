@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'rest_framework',
     'ui',
+    'restfulAPI',
 )
 REST_FRAMEWORK = {
         'DEFAULT_PERMISSION_CLASSES' : ('rest_framework.permissions.AllowAny',),#FIXME for demo
