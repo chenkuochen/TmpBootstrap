@@ -193,10 +193,10 @@
         for (var i = 0; i < tables.length; i++) {
             var table = tables[i];
             var title = table.title;
-            var laytitude = table.location.laytitude;
+            var latitude = table.location.latitude;
             var longtitude = table.location.longtitude;
             var marker = new google.maps.Marker({
-                position: new google.maps.LatLng(laytitude,longtitude),
+                position: new google.maps.LatLng(latitude,longtitude),
                 map: map,
                 title: title
             });
@@ -242,10 +242,9 @@ function isAllowList(data, filter){
             $div.hover(function(){
                 var tmpTable = $(this).data('table');
                 //console.log(tmpTable);
-                var laytitude = tmpTable.location.laytitude;
+                var latitude = tmpTable.location.latitude;
                 var longtitude = tmpTable.location.longtitude;
-                //console.log(laytitude, longtitude);
-                map.setCenter(new google.maps.LatLng(laytitude, longtitude));
+                map.setCenter(new google.maps.LatLng(latitude, longtitude));
             }, function(){
 
             });
@@ -269,7 +268,11 @@ function isAllowList(data, filter){
             removeAll();
             var filter = getFilter();
             initialTableList(data, filter);
-        });
+            });
+        var datequery = window.location.href.match(/date=([^&]+)/)[1];
+        var token = datequery.split("/");
+        var date = token[2] + "-" + token[0] + "-" + token[1];
+        console.log(date);
         
         var table = restFactory.factory("http://127.0.0.1:8000/api", "tables");
         table.list(function(status, response){
