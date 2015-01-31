@@ -24,3 +24,4 @@ class TableSerializer(serializers.ModelSerializer):
                   'location', 'description', 'title',
                   'photo', 'pet', 'smoking', 'wine',
                   )
+        depth = 2
