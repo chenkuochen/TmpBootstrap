@@ -11,6 +11,8 @@ from django.conf.urls.static import static
 router = routers.DefaultRouter()
 router.register(r'tables', restful_views.TableViewSet)
 router.register(r'meals', restful_views.MealViewSet)
+router.register(r'locations', restful_views.LocationViewSet)
+router.register(r'persons', restful_views.PersonViewSet)
 
 urlpatterns = patterns('',
     url(r'^$', ui_views.index),
