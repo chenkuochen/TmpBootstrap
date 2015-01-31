@@ -55,7 +55,7 @@ django.setup()
 
 t1 = Table.objects.create(
                           host=aaron,
-                          attendance_num=4,
+                          attendance_num=0,
                           available_num=4,
                           #menu = m1,
                           price = 240,
@@ -72,7 +72,7 @@ t1.menu.add(m1, m2,m3)
 
 t7 = Table.objects.create(
                           host=aaron,
-                          attendance_num=4,
+                          attendance_num=0,
                           available_num=4,
                           #menu = m1,
                           price = 240,
@@ -89,7 +89,7 @@ t7.menu.add(m1,m2,m3)
 
 t2 = Table.objects.create(
                           host = baird,
-                          attendance_num = 3,
+                          attendance_num = 0,
                           available_num = 3,
                           #menu =m4,
                           price = 320,
@@ -105,7 +105,7 @@ t2 = Table.objects.create(
 t2.menu.add(m4, m5, m6)
 t8 = Table.objects.create(
                           host = baird,
-                          attendance_num = 3,
+                          attendance_num = 0,
                           available_num = 3,
                           #menu =m4,
                           price = 320,
@@ -122,7 +122,7 @@ t8.menu.add(m4, m5, m6)
 
 t3 = Table.objects.create(
                           host=caesar,
-                          attendance_num=5,
+                          attendance_num=0,
                           available_num=5,
                           #menu =m7,
                           price =400,
@@ -138,7 +138,7 @@ t3 = Table.objects.create(
 t3.menu.add(m7,m8)
 t9 = Table.objects.create(
                           host=caesar,
-                          attendance_num=5,
+                          attendance_num=0,
                           available_num=5,
                           #menu =m7,
                           price =400,
@@ -155,7 +155,7 @@ t9.menu.add(m7, m8)
 
 t4 = Table.objects.create(
                           host=dana,
-                          attendance_num=2,
+                          attendance_num=0,
                           available_num=2,
                           #menu = m9,
                           price =300,
@@ -172,7 +172,7 @@ t4.menu.add(m9, m10)
 
 t10 = Table.objects.create(
                           host=dana,
-                          attendance_num=2,
+                          attendance_num=0,
                           available_num=2,
                           #menu = m9,
                           price =300,
@@ -189,7 +189,7 @@ t10.menu.add(m9,m10)
 
 t5 = Table.objects.create(
                           host=ada,
-                          attendance_num=2,
+                          attendance_num=0,
                           available_num=2,
                           #menu = m11,
                           price = 450,
@@ -206,7 +206,7 @@ t5.menu.add(m11)
 
 t11 = Table.objects.create(
                           host=ada,
-                          attendance_num=2,
+                          attendance_num=0,
                           available_num=2,
                           #menu = m11,
                           price = 450,
@@ -223,7 +223,7 @@ t11.menu.add(m11)
 
 t6 = Table.objects.create(
                           host=barbara,
-                          attendance_num=3,
+                          attendance_num=0,
                           available_num=3,
                           #menu =m12,
                           price =320,
@@ -240,7 +240,7 @@ t6.menu.add(m12,m13)
 
 t12 = Table.objects.create(
                           host=barbara,
-                          attendance_num=3,
+                          attendance_num=0,
                           available_num=3,
                           #menu =m12,
                           price =320,
