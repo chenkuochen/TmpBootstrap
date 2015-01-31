@@ -1,12 +1,276 @@
-<html>
-    <head>
-        {% load staticfiles %}
-        <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-        <script src="{% static "ui/easyajax.js"%}?XX"></script>
-        <script src="{% static "ui/restfactory.js"%}?XX"></script>
-        <script src="{% static "ui/main.js"%}?XX"></script>
-    </head>
-    <body>
-        <h1> test </h1>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>蹭飯</title>
+
+    <!-- Bootstrap Core CSS -->
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+    {% load static %}
+    <link href="{% static "ui/bootstrap-theme.css"%}" rel='stylesheet'>
+    <link href="{% static "ui/bootstrap-datetimepicker.css"%}" rel='stylesheet'>
+    <link href="{% static "ui/bootflat.min.css"%}" rel='stylesheet'>
+    <link href="{% static "ui/landing-page.css"%}" rel='stylesheet'>
+
+    <!-- Custom CSS -->
+    <!--<link href="{% static "ui/cover.css"%}" rel='stylesheet'>-->
+
+    <!-- Custom Fonts -->
+    <link href="{% static "font-awesome/css/font-awesome.min.css"%}" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar transparent" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <p class="navbar-brand" href="#">蹭飯</p>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="navbar-specific" href="#services">註冊</a>
+                    </li>
+                    <li>
+                        <a class="navbar-specific" href="#services">登入</a>
+                    </li>
+                    <li>
+                        <a class="navbar-specific" href="#apply" data-toggle="modal" data-target="#exampleModal">發起新開伙</a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+    <!-- Header -->
+    <div class="intro-header">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        <h1>作伙來呷崩</h1>
+                        <h3>附近有人開伙, 就缺你一個, 馬上加入一起歡聚吧！</h3>
+                        <hr class="intro-divider">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <div class='input-group date' id='datetimepicker'>
+                                    <input type='text' placeholder="選擇用餐時間" class=date-query "form-control" />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                            <button  class="start-btn btn btn-lg btn-default">參一咖</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.intro-header -->
+
+    <!-- Page Content -->
+
+    <div class="content-section-a">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">享受在家吃飯的感覺</h2>
+                    <p class="lead">就是溫暖的家常小菜，簡單質樸的感動，滿足。</p>
+                    <p class="lead">吃吃喝喝結交新朋友</p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    <img class="img-responsive" src="{% static "ui/dineathome.jpg"%}" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.content-section-a -->
+
+    <div class="content-section-b">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">體驗真正的異國料理</h2>
+                    <p class="lead">品嚐當地人的「日常生活」，什麼樣的深度旅遊更甚於此。</p>
+                </div>
+                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+                    <img class="img-responsive" src="{% static "ui/exoticfood.jpg"%}" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.content-section-b -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                    <p class="copyright text-muted small">Developed by 飯飯之交</p>
+            </div>
+        </div>
+    </footer>
+
+<<<<<<< Updated upstream
+    <div class="modal fade bs-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">立刻開團開伙揪大家吃飯</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2 col-lg-2 " for="id_char_field">這頓飯的名稱</label>
+                            <div class=" col-sm-10 col-lg-10 ">
+                                <input class=" form-control" id="id_char_field" name="char_field" type="text" placeholder="為你的這頓飯取個美麗的名稱吧" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2 col-lg-2 " for="id_textarea">描述一下這頓飯</label>
+                            <div class=" col-sm-10 col-lg-10 ">
+                                <textarea class=" form-control" cols="40" id="id_textarea" name="textarea" rows="10"  placeholder="有相關的敘述請填入">
+                                </textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2 col-lg-2 " for="id_char_field">這段飯的舉辦地點</label>
+                            <div class=" col-sm-10 col-lg-10 ">
+                                <input class=" form-control" id="id_char_field" name="char_field" type="text" placeholder="這段飯的地點" />
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2 col-lg-2 " for="id_char_field">這段飯的舉辦時間</label>
+                            <div class=" col-sm-10 col-lg-10 ">
+                                <input class=" form-control" id="id_char_field" name="char_field" type="text" placeholder="這段飯的時間" />
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2 col-lg-2 " for="id_choice_field">邀請幾位賓客共同用餐</label>
+                            <div class=" col-sm-10 col-lg-10 ">
+                                <select class=" form-control" id="id_choice_field" name="choice_field">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2 col-lg-2 " for="id_textarea">列出這頓飯的餐點</label>
+                            <div class=" col-sm-10 col-lg-10 ">
+                                <textarea class=" form-control" cols="40" id="id_textarea" name="textarea" rows="10"  placeholder="把你的菜單列在這">
+                                </textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2 col-lg-2 " for="id_char_field">一位賓客所需的費用</label>
+                            <div class=" col-sm-10 col-lg-10 ">
+                                <input class=" form-control" id="id_char_field" name="char_field" type="text" placeholder="要花多少摳摳" />
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2 col-lg-2 " for="id_multiple_checkbox">餐桌的規矩</label>
+                            <div class=" col-sm-10 col-lg-10 multiple-checkbox">
+                                <label for="id_multiple_checkbox_0"><input id="mcboxWine" name="mcboxWine" type="checkbox" value="optWine" /> 可開酒</label>
+                                <label for="id_multiple_checkbox_1"><input id="mcboxPet" name="mcboxPet" type="checkbox" value="optPet" /> 可帶寵物</label>
+                                <label for="id_multiple_checkbox_2"><input id="mcboxSmoke" name="mcboxSmoke" type="checkbox" value="optSmoke" /> 可抽菸</label>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2 col-lg-2 " for="id_file_fied">上傳一張用餐環境的照片</label>
+                            <div class=" col-sm-10 col-lg-10 ">
+                                <input id="id_file_fied" name="file_fied" type="file" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">開飯啦</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="{% static "ui/jquery.min.js"%}"></script>
+    <script type="text/javascript" src="{% static "ui/moment.js"%}"></script>
+    <script type="text/javascript" src="{% static "ui/bootstrap-datetimepicker.min.js"%}"></script>
+    <script type="text/javascript" src="{% static "ui/bootstrap/js/transition.js"%}"></script>
+    <script type="text/javascript" src="{% static "ui/bootstrap/js/collapse.js"%}"></script>
+    <script type="text/javascript" src="{% static "ui/bootstrap/dist/js/bootstrap.min.js"%}"></script>
+    <script type="text/javascript">
+        $(function () {
+                $('#datetimepicker').datetimepicker({
+                    sideBySide: true
+                    });
+                $('.start-btn').click(function(e){
+                        e.preventDefault();
+                        var date_query = $('.date-query').val();
+                        if("" == date_query){
+                            return;
+                        }
+                        window.location.href="http://127.0.0.1:8000/results?date=" + date_query
+                        return;
+                    })
+                }());
+    </script>
+
+</body>
+
 </html>
