@@ -177,14 +177,14 @@
     <script src="{% static "ui/easyajax.js"%}?XX"></script>
     <script src="{% static "ui/restfactory.js"%}?XX"></script>
     <script type="text/javascript">
-
+    var map;
     function initializeGoogleMap(tables) {
         var mapOptions = {
             zoom: 8,
             //center: new google.maps.LatLng(-34.397, 150.644)
             center: new google.maps.LatLng(-25.363882,131.044922)
         };
-        var map = new google.maps.Map(document.getElementById('map-canvas'),
+        map = new google.maps.Map(document.getElementById('map-canvas'),
             mapOptions);
     
         for (var i = 0; i < tables.length; i++) {
@@ -214,6 +214,18 @@
             $('p', $div).text(description);
             $('#resultdiv').append($div);  
               
+            //console.log($div);
+            $div.hover(function(){
+                var tmpTable = $(this).data('table');
+                //console.log(tmpTable);
+                var laytitude = tmpTable.location.laytitude;
+                var longtitude = tmpTable.location.longtitude;
+                //console.log(laytitude, longtitude);
+                map.setCenter(new google.maps.LatLng(laytitude, longtitude));
+            }, function(){
+
+            });
+
         }
     }
 
