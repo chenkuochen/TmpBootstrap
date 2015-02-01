@@ -14,6 +14,10 @@ from restfulAPI.models import Person, Meal, Location, Table
 #for row in csv.DictReader(f, ["Host","AttendanceNum","Attendance","Menu","Price","Datetime:","latitude?","longitude","Description","Title","Gallery","Pet","Smoking","Wine","Type"]):
 #    print row['Datetime:']
 #f.close()
+delete_db = "rm -f db.sqlite3"
+migrate_db = "python manage.py migrate"
+os.system(delete_db)
+os.system(migrate_db)
 
 aaron = Person.objects.create(name="Aaron", contact_number="939123456",photo="https://dl.dropboxusercontent.com/s/nsg98icvvuzcw5e/aaron%E7%9A%84%E5%AE%B6.jpg?dl=0")
 baird = Person.objects.create(name="Baird", contact_number="918234567",photo="https://dl.dropbox.com/s/3pb2568jhwge0n0/Baird%E7%9A%84%E5%AE%B6.jpg?dl=0")
