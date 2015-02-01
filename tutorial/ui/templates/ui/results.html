@@ -217,12 +217,19 @@ function isAllowList(data, filter){
         return false;
     return true;
     }
-    function initialTableList(tables, filter){
+function initialTableList(tables, filter, date){
+    //var buf=[];
+    //var count = 0;
         for (var i = 0; i < tables.length; i++) {
             if(null != filter){
                 if(!isAllowList(tables[i], filter)){
                     continue;
                 }
+            }
+            console.log(date);
+            console.log(tables[i].datetime);
+            if(-1 == tables[i].datetime.indexOf(date)){
+                continue;
             }
             var table = tables[i];
             var imgsrc = table.thumbnail;
@@ -230,29 +237,34 @@ function isAllowList(data, filter){
             var description = table.description;
             var price = table.price;
             
+            //var $div = $('<div class="col-md-6"><div class="thumbnail meet' + count + '"><img alt="300x200"><div class="caption"><h3></h3><p></p></div></div></div>');
             var $div = $('<div class="col-md-6"><div class="thumbnail"><img alt="300x200"><div class="caption"><h3></h3><p></p></div></div></div>');
             $('img', $div).attr('src', imgsrc);  
             $('h3', $div).text(title);  
             $('p', $div).text(description);
             $('#resultdiv').append($div);  
-            console.log("GG");
-              
+            $div.data('table', table);
+            //$(".meet" + count).click(function(){
+            //        })
+            //buf.append(table);
             //console.log($div);
             $div.hover(function(){
                 var tmpTable = $(this).data('table');
-                //console.log(tmpTable);
+                console.log(tmpTable);
                 var latitude = tmpTable.location.latitude;
-                var longtitude = tmpTable.location.longtitude;
-                map.setCenter(new google.maps.LatLng(latitude, longtitude));
+                var longitude = tmpTable.location.longitude;
+                map.setCenter(new google.maps.LatLng(latitude, longitude));
             }, function(){
 
             });
-
+            //count++;
         }
+        //dataCurrent = buf
     }
 
     $(function(){
         var data;
+        //var dataCurrent;
         //var slider = new Slider('#ex2', {});
         $("#ex2").slider({});
         $('.slider').css('width', '50%').css('margin-left', '20px').css('margin-right', '20px');
@@ -266,19 +278,22 @@ function isAllowList(data, filter){
             e.preventDefault();
             removeAll();
             var filter = getFilter();
-            initialTableList(data, filter);
+            var date = $("#dateQuery").val();
+            initialTableList(data, filter, date);
             });
-        var datequery = window.location.href.match(/date=([^&]+)/)[1];
-        var token = datequery.split("/");
+        var datequery = decodeURIComponent(window.location.href.match(/date=([^&]+)/)[1]);
+        var tokenBuf = datequery.split(" ");
+        var token = tokenBuf[0].split("/");
         var date = token[2] + "-" + token[0] + "-" + token[1];
+        console.log(datequery);
         console.log(date);
-        
+        $("#dateQuery").val(date);
         var table = restFactory.factory("http://127.0.0.1:8000/api", "tables");
         table.list(function(status, response){
             console.log(response);
             data = response.results;
             initializeGoogleMap(data);
-            initialTableList(data, null);
+            initialTableList(data, null, date);
             }, null);
 
     });
