@@ -14,6 +14,10 @@ html {
     z-index:0;
 }
 
+.thumbnail>img{
+    max-width: 330px;
+    height: 230px;
+}
 
 #filterBtn {
     float:right;
