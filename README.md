@@ -6,10 +6,6 @@
 3. 邀請幾位賓客共同用餐 -> 揪團人數
 4. 一位賓客所需的費用 -> 費用分攤(每人)
 5. 上傳一張用餐環境的照片 ->來張照片吧
-6. 先來個底色#FFDDAA 瞧瞧...可能會是悲劇 有心理準備(不然就找一張圖片放在下面弄個60%~70%模糊看看)
-TzunFanFan 讓大家一起吃飯 YA!
-
-# ALPHA_Hackthon xn--tzunfan-yj1vz50e.com #
 
 ## About飯飯之交 ##
 
@@ -37,6 +33,6 @@ TzunFanFan 讓大家一起吃飯 YA!
 
 ##  Thirdparty Service: ##
 
-Travis CI - automatic running unittest
-Googla Analytics
+- Travis CI - automatic running unittest
+- Googla Analytics
 
