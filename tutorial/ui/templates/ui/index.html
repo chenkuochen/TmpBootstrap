@@ -48,16 +48,6 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="navbar-specific" href="#services">註冊</a>
-                    </li>
-                    <li>
-                        <a class="navbar-specific" href="#services">登入</a>
-                    </li>
-                    <li>
-                        <a class="navbar-specific" href="#apply" data-toggle="modal" data-target="#applyModal">發起新開伙</a>
-                    </li>
-
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -110,7 +100,7 @@
                     <p class="lead">吃吃喝喝結交新朋友</p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="{% static "ui/dineathome.jpg"%}" alt="">
+                    <img class="img-responsive" src="{% static "ui/photos/home-party.jpg"%}" alt="">
                 </div>
             </div>
 
@@ -132,15 +122,34 @@
                     <p class="lead">品嚐當地人的「日常生活」，什麼樣的深度旅遊更甚於此。</p>
                 </div>
                 <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-                    <img class="img-responsive" src="{% static "ui/exoticfood.jpg"%}" alt="">
+                    <img class="img-responsive" src="{% static "ui/photos/exoticfood.jpg"%}" alt="">
                 </div>
             </div>
 
         </div>
         <!-- /.container -->
-
     </div>
     <!-- /.content-section-b -->
+
+    <div class="banner">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <h2>
+                        你也可以自己下廚邀請大家來參一咖 
+                    </h2>
+                </div>
+                <div class="col-lg-2">
+                    <ul class="list-inline banner-social-buttons">
+                        <li>
+                            <a href="#apply" class="btn btn-default btn-lg"  data-toggle="modal" data-target="#applyModal"><span class="network-name">立刻發起自己的開飯團</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>
