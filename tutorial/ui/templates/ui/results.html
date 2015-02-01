@@ -295,6 +295,9 @@
     }
     function removeAll(){
         $('#resultdiv').empty();  
+        for(var i=0;i<markers.length;i++){
+            markers[i].setMap(null);
+        }
     }
     function isAllowList(data, filter){
         if(data.available_num < filter.attendance)
@@ -313,6 +316,7 @@
     function initialTableList(tables, filter, date){
         //var buf=[];
         //var count = 0;
+        markers = []; 
         for (var i = 0; i < tables.length; i++) {
             if(null != filter){
                 if(!isAllowList(tables[i], filter)){
@@ -352,7 +356,8 @@
                     position: new google.maps.LatLng(latitude,longitude),
                     map: map,
                     title: title
-            });
+                });
+                markers.push(marker);
             }, function(){
 
             });
@@ -367,7 +372,8 @@
     }
 
     $(function(){
-        var data;
+            var data;
+            var markers = [];
         //var dataCurrent;
         //var slider = new Slider('#ex2', {});
         $("#ex2").slider({});
