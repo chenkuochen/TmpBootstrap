@@ -200,7 +200,7 @@
                         </div>
                         <div class="bs-callout bs-callout-danger">
                             <p>
-                                <div class="row" id="divMealGallery">
+                            <div class="row" id="divMealGallery">
                                 </div>
                             </p>
                         </div>
@@ -255,7 +255,7 @@
         $('#divMealGallery', "#tableDetailModal").empty();
         for(var i = 0; i < table.menu.length; i++){
             var meal = table.menu[i];
-            var $mealdiv = $('<div class="col-lg-3 col-md-4 col-xs-6 thumb"><a class="thumbnail"><img class="img-responsive"></a></div>');
+            var $mealdiv = $('<div class="col-lg-3 col-md-4 col-xs-6 thumb"><img class="img-responsive thumbnail-small"><figcaption>' + meal.name +'</figcaption></div>');
             //console.log($("img", $mealdiv));
             //console.log(meal.photo);
             $("img", $mealdiv).attr('src', meal.photo);

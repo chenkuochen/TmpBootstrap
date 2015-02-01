@@ -18,8 +18,14 @@ html {
   background-color: #F04E76;
 }
 
-
-
+div#divMealGallery {
+    text-align: center;
+    margin: 10px auto;
+}
+.thumbnail-small>img{
+    max-width: 260px;
+    height: 230px;
+}
 .thumbnail>img{
     max-width: 330px;
     height: 230px;
