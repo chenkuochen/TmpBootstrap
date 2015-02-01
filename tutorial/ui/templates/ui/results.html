@@ -46,7 +46,7 @@
         function initialize(places) {
             var map;
             var mapOptions = {
-                zoom: 8,
+                zoom: 18,
                 //center: new google.maps.LatLng(-34.397, 150.644)
                 center: new google.maps.LatLng(-25.363882,131.044922)
             };
@@ -57,12 +57,12 @@
                 var table = places[i];
                 var title = table.title;
                 var latitude = table.location.latitude;
-                var longtitude = table.location.longtitude;
-                console.log(title, latitude, longtitude);
+                var longitude = table.location.longitude;
+                console.log(title, latitude, longitude);
 
                 var myLatlng = 
                 var marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(latitude,longtitude);,
+                    position: new google.maps.LatLng(latitude,longitude);,
                     map: map,
                     title: title
                 });
@@ -182,7 +182,7 @@
     var map;
     function initializeGoogleMap(tables) {
         var mapOptions = {
-            zoom: 8,
+            zoom: 16,
             //center: new google.maps.LatLng(-34.397, 150.644)
             center: new google.maps.LatLng(-25.363882,131.044922)
         };
@@ -251,9 +251,15 @@ function initialTableList(tables, filter, date){
             $div.hover(function(){
                 var tmpTable = $(this).data('table');
                 console.log(tmpTable);
+                var title = tmpTable.title;
                 var latitude = tmpTable.location.latitude;
                 var longitude = tmpTable.location.longitude;
                 map.setCenter(new google.maps.LatLng(latitude, longitude));
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(latitude,longitude),
+                    map: map,
+                    title: title
+            });
             }, function(){
 
             });
