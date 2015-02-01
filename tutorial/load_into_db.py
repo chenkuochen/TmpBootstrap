@@ -43,14 +43,14 @@ m11 = Meal.objects.create(name="香煎法式里肌排", photo="../../static/ui/p
 m12 = Meal.objects.create(name="鮭魚生魚片蓋飯", photo="../../static/ui/photos/fishrice.jpg")
 m13 = Meal.objects.create(name="醋嫩鱈魚肝", photo="../../static/ui/photos/fishgan.jpg")
 
-d1 = datetime.datetime(2015, 1, 30, 12, 00, 00)
-d2 = datetime.datetime(2015, 1, 30, 19, 00, 00)
-d3 = datetime.datetime(2015, 1, 31, 12, 00, 00)
-d4 = datetime.datetime(2015, 1, 31, 19, 00, 00)
-d5 = datetime.datetime(2015, 2, 1, 12, 00, 00)
-d6 = datetime.datetime(2015, 2, 1, 19, 00, 00)
-d7 = datetime.datetime(2015, 2, 2, 12, 00, 00)
-d8 = datetime.datetime(2015, 2, 2, 19, 00, 00)
+d1 = datetime.datetime(2015, 2, 1, 12, 00, 00)
+d2 = datetime.datetime(2015, 2, 1, 19, 00, 00)
+d3 = datetime.datetime(2015, 2, 2, 12, 00, 00)
+d4 = datetime.datetime(2015, 2, 2, 19, 00, 00)
+d5 = datetime.datetime(2015, 2, 3, 12, 00, 00)
+d6 = datetime.datetime(2015, 2, 3, 19, 00, 00)
+d7 = datetime.datetime(2015, 2, 4, 12, 00, 00)
+d8 = datetime.datetime(2015, 2, 4, 19, 00, 00)
 django.setup()
 
 t1 = Table.objects.create(
