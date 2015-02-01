@@ -288,7 +288,7 @@ function initialTableList(tables, filter, date){
         console.log(datequery);
         console.log(date);
         $("#dateQuery").val(date);
-        var table = restFactory.factory("http://127.0.0.1:8000/api", "tables");
+        var table = restFactory.factory(location.origin + "/api", "tables");
         table.list(function(status, response){
             console.log(response);
             data = response.results;
