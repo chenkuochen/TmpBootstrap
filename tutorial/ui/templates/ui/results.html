@@ -217,7 +217,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">開飯啦</button>
+                    <button type="button" id="activity-join" data-dismiss="modal"  class="btn btn-primary">開飯啦</button>
                 </div>
             </div>
         </div>
@@ -249,7 +249,9 @@
         $("#tableDetailModalLabel", "#tableDetailModal").text(table.title);
         $("#liTableHost", "#tableDetailModal").text(table.host.name).prepend('<img src="' + icons.host + '" style="width:24px;height:24px;margin-right:16px;">');
         $("#liTableLocation", "#tableDetailModal").text(table.location.address).prepend('<img src="' + icons.address + '" style="width:24px;height:24px;margin-right:16px;">');
-        $("#liTableDatetime", "#tableDetailModal").text(table.datetime).prepend('<img src="' + icons.calendar + '" style="width:24px;height:24px;margin-right:16px;">');
+        var token1 = table.datetime.replace("T", " ");
+        token1 = token1.substring(0, token1.length-1);
+        $("#liTableDatetime", "#tableDetailModal").text(token1).prepend('<img src="' + icons.calendar + '" style="width:24px;height:24px;margin-right:16px;">');
         $("#liTableContact", "#tableDetailModal").text(table.host.contact_number).prepend('<img src="' + icons.mobile + '" style="width:24px;height:24px;margin-right:16px;">');
         $("#liTablePrice", "#tableDetailModal").text(table.price).prepend('<img src="' + icons.price + '" style="width:24px;height:24px;margin-right:16px;">');
         $("#liTableTableManner", "#tableDetailModal").empty();
@@ -385,6 +387,9 @@
             var date = $("#dateQuery").val();
             initialTableList(data, filter, date);
             });
+        $('#activity-join').click(function(){
+            alert("已經加此餐桌，請等待主人回覆！");
+                    });
         var datequery = decodeURIComponent(window.location.href.match(/date=([^&]+)/)[1]);
         var tokenBuf = datequery.split(" ");
         var token = tokenBuf[0].split("/");
